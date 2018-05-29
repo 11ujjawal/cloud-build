@@ -4,6 +4,10 @@ steps:
   timeout: 500s
 - name: 'gcr.io/cloud-builders/docker'
   args: ['push', 'gcr.io/play-trainee/cloud-build']
+- name: 'gcr.io/cloud-builders/gcloud'
+  args: ['container', 'clusters', 'get-credentials', 'kubia']
+  env:
+  - 'CLOUDSDK_COMPUTE_ZONE=asia-south1-a'
 - name: 'gcr.io/cloud-builders/kubectl'
   args: ['set', 'image', 'deployment/cloud-deployment', 'container=gcr.io/play-trainee/cloud-build']
   env:
