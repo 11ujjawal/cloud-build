@@ -1,4 +1,4 @@
 steps:
-- name: 'gcr.io/cloud-builder/docker'
+- name: 'gcr.io/cloud-builders/docker'
   args: ['build', '-t', 'gcr.io/play-trainee/cloud-build', '.']
   timeout: 500s
